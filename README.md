@@ -113,7 +113,7 @@ Ensure the Ookla Speedtest CLI binary is:
 If you encounter permission issues with the Speedtest CLI:
 
 ```
-chmod +x ookla-speedtest/speedtest
+chmod +x ookla-speedtest-gui/speedtest
 ```
 
 ## License
