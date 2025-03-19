@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="SpeedtestWindow" parent="AdwApplicationWindow">
+    <property name="default-width">600</property>
+    <property name="default-height">650</property>
+    <property name="title">Speedtest</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="AdwHeaderBar">
+            <child type="end">
+              <object class="GtkMenuButton">
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="menu-model">primary_menu</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <child>
+              <object class="AdwClamp">
+                <property name="maximum-size">800</property>
+                <property name="tightening-threshold">600</property>
+                <property name="margin-top">24</property>
+                <property name="margin-bottom">24</property>
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">24</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">12</property>
+                        <property name="halign">center</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="icon-name">network-wireless-symbolic</property>
+                            <property name="pixel-size">96</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label">Speedtest</property>
+                            <property name="justify">center</property>
+                            <style>
+                              <class name="title-1"/>
+                            </style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label">Test your internet connection speed</property>
+                            <property name="justify">center</property>
+                            <style>
+                              <class name="subtitle-1"/>
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    
+                    <child>
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">12</property>
+                        <child>
+                          <object class="GtkProgressBar" id="progress_bar">
+                            <property name="fraction">0</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox" id="gauge_container">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">6</property>
+                            <property name="halign">center</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <child>
+                              <object class="GtkLabel" id="gauge_phase_label">
+                                <property name="label">READY</property>
+                                <style>
+                                  <class name="heading"/>
+                                </style>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkOverlay">
+                                <property name="halign">center</property>
+                                <child>
+                                  <object class="GtkPicture" id="gauge_picture">
+                                    <property name="width-request">250</property>
+                                    <property name="height-request">250</property>
+                                    <property name="can-shrink">False</property>
+                                    <property name="keep-aspect-ratio">True</property>
+                                  </object>
+                                </child>
+                                <child type="overlay">
+                                  <object class="GtkBox">
+                                    <property name="halign">center</property>
+                                    <property name="valign">center</property>
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">4</property>
+                                    <child>
+                                      <object class="GtkLabel" id="speed_value_label">
+                                        <property name="label">0.0</property>
+                                        <style>
+                                          <class name="title-1"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="label">Mbps</property>
+                                        <style>
+                                          <class name="caption"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="status_label">
+                            <property name="label">Ready to test</property>
+                            <property name="justify">center</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="halign">center</property>
+                            <property name="spacing">12</property>
+                            <child>
+                              <object class="GtkButton" id="start_button">
+                                <property name="label">Start Test</property>
+                                <style>
+                                  <class name="suggested-action"/>
+                                  <class name="pill"/>
+                                </style>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="cancel_button">
+                                <property name="label">Cancel</property>
+                                <style>
+                                  <class name="destructive-action"/>
+                                  <class name="pill"/>
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    
+                    <child>
+                      <object class="AdwPreferencesGroup" id="results_group">
+                        <property name="title">Results</property>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title">Download</property>
+                            <property name="subtitle">Measured download speed</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="download_speed">
+                                <property name="label">0.00 Mbps</property>
+                                <style>
+                                  <class name="heading"/>
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title">Upload</property>
+                            <property name="subtitle">Measured upload speed</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="upload_speed">
+                                <property name="label">0.00 Mbps</property>
+                                <style>
+                                  <class name="heading"/>
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title">Ping</property>
+                            <property name="subtitle">Network latency</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="ping_latency">
+                                <property name="label">0.00 ms</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title">Jitter</property>
+                            <property name="subtitle">Latency variation</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="jitter">
+                                <property name="label">0.00 ms</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title">Packet Loss</property>
+                            <property name="subtitle">Percentage of lost packets</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="packet_loss">
+                                <property name="label">0.0%</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title">ISP</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="isp_label">
+                                <property name="label">-</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title">Server</property>
+                            <child type="suffix">
+                              <object class="GtkLabel" id="server_label">
+                                <property name="label">-</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title">Result URL</property>
+                            <child type="suffix">
+                              <object class="GtkLinkButton" id="result_url">
+                                <property name="label">-</property>
+                                <property name="uri">https://www.speedtest.net/</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+  
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label">_About Speedtest</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface> 
