@@ -2,7 +2,9 @@
 
 A GTK4/libadwaita application for testing internet connection speed using the Ookla Speedtest CLI.
 
-![Speedtest GUI Screenshot](screenshot.png)
+![Screenshot from 2025-03-19 12-45-44](https://github.com/user-attachments/assets/24371fbf-196a-483a-bee7-31f74e0031e4)
+![Screenshot from 2025-03-19 12-47-25](https://github.com/user-attachments/assets/afe76255-ca4f-4b29-8930-bf4e4f0a2c1a)
+![Screenshot from 2025-03-19 12-47-52](https://github.com/user-attachments/assets/51d03ee8-239f-43ca-aff8-859c0bd54ef0)
 
 ## Features
 
