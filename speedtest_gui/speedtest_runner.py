@@ -53,14 +53,14 @@ class SpeedtestRunner(GObject.Object):
             print("DEBUG: Starting speedtest process")
             
             # Path to the Ookla speedtest CLI - updated path
-            speedtest_path = "./ookla-speedtest/speedtest"
+            speedtest_path = "./ookla-speedtest-gui/speedtest"
             
             # Check if the file exists at the specified path
             if not os.path.isfile(speedtest_path):
                 # Try alternative paths
                 alternative_paths = [
                     "ookla-speedtest/speedtest",  # No leading ./
-                    "/home/macuseri686/ookla-speedtest/speedtest",  # Full path
+                    "/home/macuseri686/ookla-speedtest-gui/speedtest",  # Full path
                     "speedtest"  # Just the command name, rely on PATH
                 ]
                 
